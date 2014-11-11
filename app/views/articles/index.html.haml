@@ -1,0 +1,26 @@
+.page-header
+  = link_to new_article_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Article
+  %h1 Articles
+
+= render @articles
+
+-#.table-responsive
+-#  %table.table.table-striped.table-bordered.table-hover
+-#    %thead
+-#      %tr
+-#        %th Name
+-#        %th Content
+-#        %th
+-#        %th
+-#        %th
+-#
+-#    %tbody
+-#      - @articles.each do |article|
+-#        %tr
+-#          %td= article.name
+-#          %td= article.content
+-#          %td= link_to 'Show', article
+-#          %td= link_to 'Edit', edit_article_path(article)
+-#          %td= link_to 'Destroy', article, :data => { confirm: 'Are you sure?' }, :method => :delete
