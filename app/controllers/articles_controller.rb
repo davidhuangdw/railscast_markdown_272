@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.decorate
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = Article.new.decorate
   end
 
   # GET /articles/1/edit
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(article_params).decorate
 
     respond_to do |format|
       if @article.save
@@ -73,7 +73,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.find(params[:id]).decorate
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
